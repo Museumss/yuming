@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<meta charset="utf-8">
+<meta name="viewport"
+    content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<meta name="format-detection" content="telephone=no">
+<meta content="false" name="twcClient" id="twcClient">
+<meta name="aplus-touch" content="1">
+<style>
+    body,
+    html {
+        width: 100%;
+        height: 100%
+    }
+
+    * {
+        margin: 0;
+        padding: 0
+    }
+
+    body {
+        background-color: #fff
+    }
+
+    
+
+    .page {
+        width: 750px;
+        margin: 0 auto;
+        position: relative;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .top-view {
+        width: 100%;       
+        color: #fff;
+        font-size: 14px;
+        position: relative;    
+    }
+    .top-view .top-view-img{
+        width: 100%;    
+    }
+    .top-view .top-view-body{
+        position: absolute;
+        left: 5%;
+        top: 10%;
+    }
+    .top-view .top-view-body .icon-safari {
+        width: 25px;
+        height: 25px;
+        vertical-align: middle;
+        margin: 0 .5em;
+    }
+
+    .mian-view{
+        width: 95%;
+        /* height: 400px; */
+        /* background-color: #f424ea; */
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+    }
+    .mian-view-title{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        font-size: 20px;
+        color: #183DD9;
+        /* font-weight: 600; */
+    }
+    .mian-view-tip{
+        font-size: 14px;
+        color: #666666;
+        width: 49.5%;
+        font-weight: 400;
+        letter-spacing: 0px;
+       
+        line-height: 20px;
+        /* text-indent:28px */
+    }
+    .mian-view-download {      
+        width: 100%;      
+    }
+    .mian-view-download img{
+        width: 100%;
+    }
+    .floor{
+        width: 95%;
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+        /* align-items: center; */
+        justify-content: space-between;
+        padding-bottom: 20px;
+    }
+    .floor-item{
+        width: 32%;
+        border-radius: 8px;
+        background: rgba(239, 244, 255, 1);
+        border: 1px solid rgba(151, 151, 151, 1);
+        height: 100%;
+        position: relative;
+    }
+    .floor-item .floor-item-title{
+        position: absolute;
+        top: -12px;
+
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 8px;
+        background: rgba(239, 244, 255, 1);
+        width: 80%;
+        overflow: hidden;
+       
+
+    }
+    .floor-item .floor-item-title .floor-item-title-bg{
+        width: 100%;
+        height: 25px;
+        line-height:25px;
+        padding: 0 5px;
+        background: linear-gradient(263.23deg, rgba(187, 207, 246, 0.5) 0%, rgba(103, 142, 254, 0.5) 100%);      
+        font-size:80%;
+        color: #183DD9;
+        text-align: center;
+        font-size: 12px;
+    }
+    .scale-8{
+        display: inline-block;
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        margin-left: -10px;
+    }
+    .scale-7{
+        display: inline-block;
+        transform: scale(0.7);
+        -webkit-transform: scale(0.7);
+
+    }
+    .floor-item-body{
+        padding: 10px 5px;
+        margin-top: 10px;
+        letter-spacing: 0px;
+        line-height: 20px;
+        color: rgba(102, 102, 102, 1);
+        text-align: left;
+        font-size: 12px;
+        text-indent:24px
+    }
+    /* .time{
+        width: 150px;
+        height: 25px;
+        line-height: 25px;
+        text-align: center;
+        background-color:rgba(0, 0, 0,0.4);
+        color: #fff;
+        border-radius: 50px;
+        font-size: 12px;
+        margin-top: 10px;
+        display:none;
+    } */
+    @media (max-width: 700px) {
+        .page {
+            width: 100%;
+        }
+        .floor{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .floor-item{
+            width: 90%;
+            margin-bottom: 20px;
+        }
+        .dialog .dialog-body{
+            width: 80%;
+           
+        }
+    }
+    .dialog{
+        display : none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color:rgba(8, 8, 8, 0.2);
+        
+    }
+    .dialog .dialog-body{
+       width: 350px;
+       border-radius: 3px;
+       background-color: #fff;
+       box-shadow: -10px 5px 12px  rgba(0, 0, 0, 0.1);
+    }
+    .dialog .dialog-body .title{
+       padding: 15px 20px;
+       border-bottom: 1px solid rgb(218, 218, 218);     
+       position: relative;
+       display: flex;
+       flex-direction: row;
+       justify-content: space-between;
+       font-size: 14px;
+    }
+    .dialog .dialog-body .title .close{
+       width: 20px;
+       height: 20px;
+    }
+    .dialog .dialog-body .mian{
+       width: 100%;      
+       height: 100px;
+       display: flex;
+       flex-direction: row;
+       align-items: center;
+       justify-content: center;
+       font-size: 14px;
+       color: #000;
+    }
+    .dialog .dialog-body .mian .jg{
+        width: 25px;
+        height: 25px;
+        margin-right: 10px;
+    }
+    .dialog .dialog-body .btns{
+        padding: 10px;
+        text-align: right;
+    }
+    .dialog .dialog-body .btns .btn-item{
+        padding: 5px 0px;
+        width: 80px;
+        text-align: text;
+        background-color: #fff;
+        border: 1px solid rgba(151, 151, 151, 1);
+        border-radius: 3px;
+        margin-left: 10px;   
+    }
+</style>
+
+<body>
+    <div class="page">
+        <div class="top-view">
+            <img class="top-view-img" src="/images/234.png">
+            <div class="top-view-body">
+                <p style="margin-bottom: 2px;">点击右上角<img src="/images/qKcdEt.png" class="icon-safari">在 浏览器 打开</p>
+                <p style="margin-bottom: 2px;">苹果设备<img src="/images/0.png"
+                        class="icon-safari">安卓设备<img
+                        src="/images/1.png"
+                        class="icon-safari">↗↗↗</p>
+                        
+            </div>
+            
+        </div>
+        <div class="mian-view">
+            <!--div class="mian-view-title">网站说明</div-->
+
+            <div class="mian-view-download">
+                <img src="/images/2.png">
+            </div>
+        </div>
+ 
+    
+    <!-- 弹框 -->
+    <div class="dialog" id="dialog">
+        
+    </div>
+
+</body>
+
+<script>
+    var url = document.location.toString();
+    var search = window.location.search;
+    var timer = null;
+    var num = 0;
+    var ua = navigator.userAgent.toLowerCase();
+    var isWeixin = ua.match(/MicroMessenger\/[0-9]/i) || ua.match(/QQ\/[0-9]/i);
+    let dialog = document.querySelector("#dialog");
+    //var isAndroid = ua.indexOf("android") != -1;
+    //var isIos = (ua.indexOf("iphone") != -1) || (ua.indexOf("ipad") != -1);// 判断是不是在wx客户端打开
+    if (isWeixin) {
+        // 判断是在Android的wx客户端还是Ios的wx客户端
+        if (isAndroid) {
+
+        } else if (isIos) {
+
+        } else {
+
+        }
+    } else {
+        var time = document.getElementById('time');
+        
+        dialog.style.display= 'flex';
+        var domains = [
+            'https://www.xkwo.com',
+
+        ];
+
+        var index = Math.floor((Math.random() * domains.length));
+        var domain = domains[index];
+        if (search) {
+            domain = domain + search;
+        }
+
+        // setTimeout(function (){              
+        //   // location.href= domain;
+        // }, 5000);
+        var timer = setInterval(function(){ 
+            console.log(num)          
+            if(num > 0){
+                num--;
+                time.innerHTML = num + ' 秒后开始执行跳转网站,请尽快保存收藏！'
+            }else{
+                start()
+            }
+        },1000)
+    }
+    function clear(){
+        clearInterval(timer);
+    }
+
+    function cancel(){
+        console.log('取消')
+        num = 0;
+        dialog.style.display= 'none';
+    }
+
+    function start(){
+        clear()              
+        location.href= domain;
+    }
+   
+    function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        //返回参数值
+        if (r != null) {
+            return decodeURI(r[2]);
+
+        }
+
+        //https://www.jb51.net/tools/html_jiami.htm
+        //https://www.jsjiami.com/charcode.html
+
+        return null;
+
+    }
+</script>
+
+</html>
